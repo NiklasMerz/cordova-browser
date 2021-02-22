@@ -1179,7 +1179,8 @@ exports.reset = function () {
 
 function addEntry (strategy, moduleName, symbolPath, opt_deprecationMessage) {
     if (!(moduleName in moduleMap)) {
-        throw new Error('Module ' + moduleName + ' does not exist.');
+        console.warn('Module ' + moduleName + ' does not exist.');
+        return;
     }
     symbolList.push(strategy, moduleName, symbolPath);
     if (opt_deprecationMessage) {
